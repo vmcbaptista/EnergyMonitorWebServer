@@ -8,8 +8,8 @@
 
   <script src="javascripts/jquery-1.11.1.min.js"></script>
   <script src="javascripts/gauge.min.js"></script>
-  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
   <script src="javascripts/index.js"></script>
+  <script src="javascripts/enerspectrum.js"></script>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
@@ -45,25 +45,25 @@
       <div align="center">
         <h3></h3>
 
-        <button id="calibrate_button" onclick="calibrate_request()" style="margin-right: 30px">Calibrate</button>
+        <button id="calibrate_button" style="margin-right: 30px">Calibrate</button>
         <style>
           .button {background-color: #FB0808;} /* Red */
         </style>
-        <button class=button id="relay_button" onclick="control_relay()">Turn plug off</button>
+        <button class=button id="relay_button">Turn plug off</button>
 
       </div>
       <h4></h4>
       <div align="center">
-        <select onchange="changeOption(value)">
+        <select id="voltage">
           <option >---Select Mains RMS Voltage (default 230 V)---</option>
-          <option value="voltage_110">110 V</option>
-          <option value="voltage_120">120 V</option>
-          <option value="voltage_127">127 V</option>
-          <option value="voltage_220">220 V</option>
-          <option value="voltage_230">230 V</option>
-          <option value="voltage_240">240 V</option>
+          <option value="110">110 V</option>
+          <option value="120">120 V</option>
+          <option value="127">127 V</option>
+          <option value="220">220 V</option>
+          <option value="230">230 V</option>
+          <option value="240">240 V</option>
         </select>
-        <h4 id='mainsVoltageh1'>230 V</h4>
+        <h4 id='actualVoltage'>230 V</h4>
       </div>
     </div>
 
