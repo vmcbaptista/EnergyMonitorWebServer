@@ -40,11 +40,11 @@ $().ready(function() {
     $('#relay_button').click(function() {
         var button = $(this);
         $.post("http://192.168.10.152/relay",function(data){
-            if (data.value === false) {
+            if (data === true) {
                 button.text('Turn plug off');
                 button.css('background-color', 'red');
             }
-            else if (data.value === true) {
+            else if (data === false) {
                 button.text("Turn plug on");
                 button.css('background-color', 'limegreen');
             }
@@ -57,7 +57,7 @@ $().ready(function() {
     //Sends to the server the value of the new selected mains voltage
     $("#voltage").change(function () {
         var value = $( "select option:selected" ).val();
-        $.post("http://192.168.10.152/voltage/" + value, function(data) {
+        $.post("http://192.168.10.152/voltage/", {voltage: value}, function(data) {
             $('#actualVoltage').text(data);
         })
             .fail(function(){
